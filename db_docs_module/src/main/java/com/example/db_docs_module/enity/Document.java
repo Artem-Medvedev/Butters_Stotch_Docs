@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 @Table(name = "documents")
 @NoArgsConstructor(force = true)
 public class Document {
-
     @Id
     @Column(name = "document_id")
     private final long id;
     @Column(name = "document_name")
     private final String documentName;
-
     @Column(name = "document_extension")
     private final String documentExtension;
     @Column(name = "document_data")
     private final byte[] document;
+    @Column(name = "document_version")
+    private final String documentVersion;
 }
