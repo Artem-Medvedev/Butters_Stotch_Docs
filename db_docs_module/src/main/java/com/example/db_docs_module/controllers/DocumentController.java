@@ -3,34 +3,42 @@ package com.example.db_docs_module.controllers;
 import com.example.db_docs_module.enity.Document;
 import com.example.db_docs_module.repository.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/documents", produces = "application/json")
 public class DocumentController {
 
-    private DocumentRepository documentRepository;
+    private final DocumentRepository documentRepository;
+
     @Autowired
-    public DocumentController(DocumentRepository documentRepository){
+    public DocumentController(DocumentRepository documentRepository) {
         this.documentRepository = documentRepository;
     }
 
-    public Document getDocument(){
-        return new Document();
+    @GetMapping("/{id}")
+    public Document getDocument(@PathVariable("id") Long id) {
+        Optional<Document> document = documentRepository.findById(id);
+        return document.orElseGet(Document::new);
     }
 
-    public void saveDocument(){
-
+    @PostMapping(consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Document saveDocument(@RequestBody Document document) {
+        return documentRepository.save(document);
     }
 
-    public void deleteDocument(){
-
+    @DeleteMapping(path = "/delete/{id}")
+    public void deleteDocument(@PathVariable("id") Long id) {
+        documentRepository.deleteById(id);
     }
 
-    public List<Document> getAllDocuments(){
-        return null;
+    @GetMapping
+    public List<Document> getAllDocuments() {
+        return documentRepository.findAll();
     }
 }

@@ -13,35 +13,35 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
-@Service
-@Slf4j
-public class TestDB implements CommandLineRunner {
-/*
-Don't forget to connect to database
- */
-    private final DocumentRepository documentRepository;
-
-    public TestDB( DocumentRepository documentRepository){
-        this.documentRepository = documentRepository;
-    }
-
-
-    @Override
-    public void run(String... args) throws Exception {
-        Path path = Paths.get("C:\\Users\\Artem\\IdeaProjects\\Butters_Stotch_Docs\\db_docs_module\\resume_version2.0.pdf");
-        byte[] pdfData = Files.readAllBytes(path);
-
-        Document doc = new Document(1L,"bruh", ".pdf", pdfData,"");
-        documentRepository.save(doc);
-
-        Document document = documentRepository.findAll().get(0);
-
-
-        try (FileOutputStream fos = new FileOutputStream(document.getDocumentName() + document.getDocumentExtension())) {
-            fos.write(document.getDocument()); // Write the byte array to the file
-            System.out.println("PDF file saved successfully.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
+//@Service
+//@Slf4j
+//public class TestDB implements CommandLineRunner {
+///*
+//Don't forget to connect to database
+// */
+//    private final DocumentRepository documentRepository;
+//
+//    public TestDB( DocumentRepository documentRepository){
+//        this.documentRepository = documentRepository;
+//    }
+//
+//
+//    @Override
+//    public void run(String... args) throws Exception {
+//        Path path = Paths.get("C:\\Users\\Artem\\IdeaProjects\\Butters_Stotch_Docs\\db_docs_module\\resume_version2.0.pdf");
+//        byte[] pdfData = Files.readAllBytes(path);
+//
+//        Document doc = new Document(1L,"bruh", ".pdf", pdfData,"");
+//        documentRepository.save(doc);
+//
+//        Document document = documentRepository.findAll().get(0);
+//
+//
+//        try (FileOutputStream fos = new FileOutputStream(document.getDocumentName() + document.getDocumentExtension())) {
+//            fos.write(document.getDocument()); // Write the byte array to the file
+//            System.out.println("PDF file saved successfully.");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//}
