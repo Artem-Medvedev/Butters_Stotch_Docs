@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/db_docs_module/pom.xml" />
+        <option value="$PROJECT_DIR$/docs_security_module/pom.xml" />
       </list>
     </option>
   </component>

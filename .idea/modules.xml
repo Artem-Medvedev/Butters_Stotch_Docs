@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Butters_Stotch_Docs.iml" filepath="$PROJECT_DIR$/.idea/Butters_Stotch_Docs.iml" />
       <module fileurl="file://$PROJECT_DIR$/db_docs_module/db_docs_module.iml" filepath="$PROJECT_DIR$/db_docs_module/db_docs_module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docs_security_module/docs_security_module.iml" filepath="$PROJECT_DIR$/docs_security_module/docs_security_module.iml" />
     </modules>
   </component>
 </project>
